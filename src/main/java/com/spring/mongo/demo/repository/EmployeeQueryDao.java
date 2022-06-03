@@ -18,4 +18,6 @@ public interface EmployeeQueryDao {
 
 	List<Employee> getEmployeeBySalaryGreaterThan(int salary);
 
+	List<Employee> getEmployeesByNameLikeInsensitive(String name);
+
 }

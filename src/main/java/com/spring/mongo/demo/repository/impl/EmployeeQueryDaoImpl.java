@@ -83,4 +83,15 @@ class EmployeeQueryDaoImpl implements EmployeeQueryDao {
     }
 
 
+	@Override
+	public List<Employee> getEmployeesByNameLikeInsensitive(String name) {
+		Query query = new Query();
+		Criteria criteria = new Criteria();
+		criteria.orOperator(Criteria.where("firstName").regex(name,"i"), Criteria.where("lastName").regex(name,"i"));
+		query.addCriteria(criteria);
+		query.with(Sort.by(Sort.Direction.ASC, "firstName"));
+		return mongoTemplate.find(query, Employee.class);
+	}
+
+
 }

@@ -26,6 +26,12 @@ public class EmployeeQueryController {
     public List<Employee> getEmployeeByFirstName(@PathVariable String firstName) {
         return employeeQueryService.getEmployeeByFirstName(firstName);
     }
+    
+    // getAll employee by first name (equals())
+    @GetMapping("/name/{name}")
+    public List<Employee> getEmployeesByNameLikeInsensitive(@PathVariable String name) {
+        return employeeQueryService.getEmployeesByNameLikeInsensitive(name);
+    }
 
 
     // getAll employee by first name (equals())

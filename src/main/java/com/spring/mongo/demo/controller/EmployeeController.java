@@ -3,7 +3,12 @@ package com.spring.mongo.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.mongo.demo.model.Employee;
 import com.spring.mongo.demo.service.EmployeeService;
@@ -11,7 +16,7 @@ import com.spring.mongo.demo.service.EmployeeService;
 @RestController
 @RequestMapping("/employee-jpa")
 public class EmployeeController {
-	
+
 	@Autowired
 	private EmployeeService employeeService;
 
@@ -19,21 +24,26 @@ public class EmployeeController {
 	public String sayHello() {
 		return "Hello Spring boot";
 	}
-	
+
 	@GetMapping
 	public List<Employee> getAll() {
 		return employeeService.getAll();
 	}
-	
 
 	@GetMapping("/{empId}")
-	public Employee getEmployeeById(@PathVariable int empId ) {
+	public Employee getEmployeeById(@PathVariable int empId) {
 		return employeeService.getEmployeeById(empId);
 	}
-	
+
 	@GetMapping("/firstName/{firstName}")
-	public List<Employee> getEmployeeByName(@PathVariable String firstName ) {
+	public List<Employee> getEmployeeByName(@PathVariable String firstName) {
 		return employeeService.getEmployeeByFirstName(firstName);
+	}
+
+	// get employees by name 
+	@GetMapping("/name/{name}")
+	public List<Employee> getEmployeesByName(@PathVariable String name) {
+		return employeeService.getEmployeesByName(name);
 	}
 
 	// get employee by first name (equals())
@@ -53,18 +63,13 @@ public class EmployeeController {
 		return employeeService.getEmployeeByLastName(lastName);
 	}
 
-
 	@GetMapping("/salary-greater-than/{salary}")
 	public List<Employee> getEmployeeBySalaryGreaterThan(@PathVariable int salary) {
 		return employeeService.getEmployeeBySalaryGreaterThan(salary);
 	}
-	
+
 	@PostMapping("/get-by-condition")
 	public List<Employee> getEmployeeByCondition(@RequestBody Employee employee) {
 		return employeeService.getEmployeeByCondition(employee);
 	}
 }
-
-
-
-

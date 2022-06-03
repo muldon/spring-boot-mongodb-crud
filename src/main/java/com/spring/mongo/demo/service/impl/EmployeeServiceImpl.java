@@ -182,4 +182,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employees;
 	}
 
+	@Override
+	public Employee save(Employee employee) {
+		return repository.save(employee);
+	}
+
+	@Override
+	public List<Employee> getEmployeesByName(String name) {
+		return repository.findEmployeesByName(name.toLowerCase());
+	}
+
+	 
+
 }

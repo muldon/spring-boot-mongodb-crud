@@ -134,4 +134,9 @@ public class EmployeeQueryServiceImpl implements EmployeeQueryService {
 		return employees;
 	}
 
+	@Override
+	public List<Employee> getEmployeesByNameLikeInsensitive(String name) {
+		return employeeQueryDao.getEmployeesByNameLikeInsensitive(name);
+	}
+
 }

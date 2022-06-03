@@ -20,5 +20,7 @@ public interface EmployeeQueryService {
 
 	List<Employee> getEmployeeByCondition(Employee employee);
 
+	List<Employee> getEmployeesByNameLikeInsensitive(String name);
+
 
 }

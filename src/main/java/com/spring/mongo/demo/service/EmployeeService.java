@@ -23,4 +23,12 @@ public interface EmployeeService {
 	
 	List<Employee> getEmployeeByCondition(Employee employee);
 
+	Employee save(Employee employee);
+ 
+	List<Employee> getEmployeesByName(String firstName);
+
+	 
+
+	 
+
 }
