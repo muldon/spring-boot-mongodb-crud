@@ -16,5 +16,7 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
     @Query("{firstName:'?0'}")
 	List<Employee> findEmployeesByName(String name);
 
+	void deleteByFirstNameLike(String name);
+
 
 }

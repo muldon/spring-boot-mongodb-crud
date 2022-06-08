@@ -27,6 +27,8 @@ public interface EmployeeService {
  
 	List<Employee> getEmployeesByName(String firstName);
 
+	void deleteByFirstName(String name);
+
 	 
 
 	 

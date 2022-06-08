@@ -192,6 +192,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return repository.findEmployeesByName(name.toLowerCase());
 	}
 
+	@Override
+	public void deleteByFirstName(String name) {
+		repository.deleteByFirstNameLike(name);
+		
+	}
+
 	 
 
 }
